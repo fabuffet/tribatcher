@@ -4,24 +4,24 @@
 </head>
 <body>
 <?php
+
 $t=array(15,22,81,3,106,1,24,7,0);
 $cpt=count($t);
 $v=0;
+
+for($j=0;$j<count($t);$j++) echo $t[$j]." ";
+echo "<br />";
 
 while((pow(2,$v))<$cpt) $v++;
 
 $p=pow(2,$v-1);
 
-for($j=0;$j<count($t);$j++) echo $t[$j]." ";
-echo "<br />";
+if($t[0]>$t[$p]) {
+	$tmp=$t[0];
+	$t[0]=$t[$p];
+	$t[$p]=$tmp;
+}
 
-		if($t[0]>$t[$p]) {
-			$tmp=$t[0];
-			$t[0]=$t[$p];
-			$t[$p]=$tmp;
-		}
-for($j=0;$j<count($t);$j++) echo $t[$j]." ";
-echo "<br />";
 
 $d=$p;
 $p=(int)($p/2);
@@ -46,22 +46,20 @@ while($p>=1){
 
 	}
 		if($p !== $q) {
-		$d=$q-$p;
-		$q=(int)($q/2);
-		$r=$p;
-		} 
-		elseif($p == $q) {
-		$d=$p;
-		$p=(int)($p/2);
-		$q=pow(2,$v-1);
-		$r=0;
-	}
+			$d=$q-$p;
+			$q=(int)($q/2);
+			$r=$p;
+		} elseif($p == $q) {
+			$d=$p;
+			$p=(int)($p/2);
+			$q=pow(2,$v-1);
+			$r=0;
+		}
+
 for($i=0;$i<count($t);$i++) echo $t[$i]." ";
 echo "<br />";
 }
 
-for($i=0;$i<count($t);$i++) echo $t[$i]." ";
-echo "<br />";
 ?>
 </body>
 </html>
